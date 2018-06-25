@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
                         strict = true,
                         plugin = { "pretty","html:target/cucumber", "junit:target/cucumber/cucumber.xml"},
                         snippets = SnippetType.UNDERSCORE,
-                        tags = { "@payment" }
+                        tags = { "@account" }
                         )
 
 public class RunCucumber {

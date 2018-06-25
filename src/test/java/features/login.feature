@@ -10,10 +10,16 @@ Feature: CREATE ACCOUNT
     When I click to here link
     And I input to email textbox
     And I click to submit button
-    Then I get to usernam information
+    And I get to username information
     And I get to password information
     And I open login page
-    And I input to password textbox 
+    And I input to username textbox 
     And I input to password textbox 
     And I submit button
-    And I verify homepage welcome message displayed
+    Then I verify homepage welcome message displayed
+    And I click to New Customer Page
+    And I input all information in this page
+    |Customer   |Gender|Date Of Birth|Address|City |State|PIN   |Phone     |Email|Password|
+    |Khanh Trang|f     |28/06/1995   |HBT    |Hanoi| VN  |123456|0163842125|auto |123456  |
+    And I click to sub button
+    And I close browser
