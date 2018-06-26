@@ -102,9 +102,8 @@ public class LoginPageSteps {
 
 	@And("^I input all information in this page$")
 	public void i_input_all_information_in_this_page(DataTable table) {
-		List<Map<String, String>> customer = table.asMaps(String.class, String.class);
-		WebElement nameTxt = driver.findElement(By.xpath("//input[@name='name']"));
-		WebElement genger = driver.findElement(By.xpath("//input[@value='f']"));
+		WebElement customerName = driver.findElement(By.xpath("//input[@name='name']"));
+		WebElement gender = driver.findElement(By.xpath("//input[@value='f']"));
 		WebElement DOB = driver.findElement(By.xpath("//input[@name='dob']"));
 		WebElement add = driver.findElement(By.xpath("//textarea[@name='addr']"));
 		WebElement city = driver.findElement(By.xpath("//input[@name='city']"));
@@ -113,22 +112,29 @@ public class LoginPageSteps {
 		WebElement phoneNo = driver.findElement(By.xpath("//input[@name='telephoneno']"));
 		WebElement mail = driver.findElement(By.xpath("//input[@name='emailid']"));
 		WebElement password = driver.findElement(By.xpath("//input[@name='password']"));
-//		 1:07:00
-	
-		newCustomerPage.enterCustomerName(customer.get(0).get("CustomerName"));
-		newCustomerPage.clickGenderRadioButton(customer.get(0).get("Gender"));
-		newCustomerPage.enterDateOfBirth(customer.get(0).get("DateOfBirth"));
-		newCustomerPage.enterAddress(customer.get(0).get("Address"));
-		newCustomerPage.enterCity(customer.get(0).get("City"));
-		newCustomerPage.enterState(customer.get(0).get("State"));
-		newCustomerPage.enterPin(customer.get(0).get("PIN"));
-		newCustomerPage.enterMobile(customer.get(0).get("Phone"));
-		newCustomerPage.enterEmail(customer.get(0).get("Email"));
-		newCustomerPage.enterPassword(customer.get(0).get("Password"));
+		List<Map<String, String>> customer = table.asMaps(String.class, String.class);
+		customerName.sendKeys(customer.get(0).get("Customer"));
+		gender.click();
+		DOB.sendKeys(customer.get(0).get("DateOfBirth"));
+		add.sendKeys(customer.get(0).get("Address"));
+		city.sendKeys(customer.get(0).get("City"));
+		state.sendKeys(customer.get(0).get("State"));
+		pin.sendKeys(customer.get(0).get("PIN"));
+		phoneNo.sendKeys(customer.get(0).get("Phone"));
+		mail.sendKeys(customer.get(0).get("Email") + random() + "@gmail.com");
+		password.sendKeys(customer.get(0).get("Password"));
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	@And("^I submit button$")
-	public void i_sub_button() {
+	@Then("^I click sub button$")
+	public void i_click_sub_button() {
+		driver.findElement(By.xpath("//input[@name='sub']"));
 	}
 
 	@Then("^I close browser$")

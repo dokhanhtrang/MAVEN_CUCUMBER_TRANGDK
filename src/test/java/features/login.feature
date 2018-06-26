@@ -19,7 +19,7 @@ Feature: CREATE ACCOUNT
     Then I verify homepage welcome message displayed
     And I click to New Customer Page
     And I input all information in this page
-    |Customer   |Gender|Date Of Birth|Address|City |State|PIN   |Phone     |Email|Password|
-    |Khanh Trang|f     |28/06/1995   |HBT    |Hanoi| VN  |123456|0163842125|auto |123456  |
-    And I click to sub button
+    |Customer   |Gender|DateOfBirth  |Address|City |State|PIN   |Phone     |Email|Password   |
+    |Khanh Trang|f     |28/06/1995   |HBT    |Hanoi| VN  |123456|0163842125|trangdk |123456  |
+    And I click sub button
     And I close browser
